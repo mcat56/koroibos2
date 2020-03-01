@@ -246,7 +246,7 @@ Sample Response:
 
 ### Database Schema
 
-![database schema](https://i.imgur.com/QoUfFiN.png)
+![database schema](https://i.imgur.com/MtuSMr4.png)
 
 
 ### Project Board

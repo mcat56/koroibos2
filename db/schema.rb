@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_224946) do
+ActiveRecord::Schema.define(version: 2020_03_01_225445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 2020_03_01_224946) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "olympian_events", force: :cascade do |t|
+    t.bigint "olympian_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_olympian_events_on_event_id"
+    t.index ["olympian_id", "event_id"], name: "index_olympian_events_on_olympian_id_and_event_id", unique: true
+    t.index ["olympian_id"], name: "index_olympian_events_on_olympian_id"
   end
 
   create_table "olympians", force: :cascade do |t|
@@ -68,6 +78,8 @@ ActiveRecord::Schema.define(version: 2020_03_01_224946) do
   add_foreign_key "events", "olympians", column: "gold_id"
   add_foreign_key "events", "olympians", column: "silver_id"
   add_foreign_key "events", "sports"
+  add_foreign_key "olympian_events", "events"
+  add_foreign_key "olympian_events", "olympians"
   add_foreign_key "olympians", "sports"
   add_foreign_key "olympians", "teams"
 end
