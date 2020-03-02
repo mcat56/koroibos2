@@ -11,6 +11,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
 gem 'json'
 gem 'dotenv'
+gem 'fast_jsonapi'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -35,6 +37,8 @@ group :development, :test do
   gem 'capybara'
   gem 'simplecov'
   gem 'rack-test'
+  gem 'faker'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
