@@ -13,5 +13,4 @@ class Api::V1::OlympiansController < ApplicationController
     olympians.each { |olympian| result[:olympians] << OlympianSerializer.new(olympian) }
     render json: result
   end
-
 end
