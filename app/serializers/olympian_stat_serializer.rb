@@ -4,6 +4,8 @@ class OlympianStatSerializer
   def initialize(olympians)
     @olympian_stats = {
       total_competing_olympians: olympians.length,
+      total_male_olympians: male_olympians(olympians),
+      total_female_olympians: female_olympians(olympians),
       average_weight: {
         unit: 'kg',
         male_olympians: average_male_weight(olympians),
@@ -11,6 +13,14 @@ class OlympianStatSerializer
       },
       average_age: average_age(olympians)
     }
+  end
+
+  def male_olympians(olympians)
+    olympians.where(sex: 'M').length
+  end
+
+  def female_olympians(olympians)
+    olympians.where(sex: 'F').length
   end
 
   def average_male_weight(olympians)
