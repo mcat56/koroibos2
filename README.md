@@ -29,10 +29,10 @@
 
 ### Description
 
-koroibos is a Sinatra PostgreSQL API serving endpoints for the 2016 Summer Olympics. Endpoints provide data such as all olympians in the games, the oldest and youngest olympians, olympian stats, events, and medalists.
+koroibos is a Rails PostgreSQL API serving endpoints for the 2016 Summer Olympics. Endpoints provide data such as all olympians in the games, the oldest and youngest olympians, olympian stats, events, and medalists.
 
 ### Tech Stack
-* Sinatra (2.0.8)
+* Rails (2.0.8)
 * PostgreSQL (11.5)
 * RSpec (3.9.0)
 
@@ -58,7 +58,7 @@ To create, migrate and add Olympic game data run :
 
 `rake db:create`
 `rake db:migrate`
-`rake import`
+`rake import:olympic_data`
 
 
 ### Running local server
@@ -82,7 +82,7 @@ Run the following :
 `git push heroku master`
 `heroku run rake db:migrate`
 `heroku run rake db:seed`
-`heroku run rake import`
+`heroku run rake import:olympic_data`
 `heroku open`
 
 ## Endpoints
@@ -246,7 +246,7 @@ Sample Response:
 
 ### Database Schema
 
-![database schema](https://i.imgur.com/MtuSMr4.png)
+![database schema](https://i.imgur.com/DmuIVva.png)
 
 
 ### Project Board
