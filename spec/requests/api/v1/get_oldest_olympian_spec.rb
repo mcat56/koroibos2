@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'get all olympians' do
+describe 'get oldest olympian' do
   it 'gets all olympians and associated info' do
     team1 = Team.create(country: 'USA')
     team2 = Team.create(country: 'Germany')
