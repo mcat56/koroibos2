@@ -4,7 +4,7 @@ class Api::V1::OlympiansController < ApplicationController
     if params[:age] == 'youngest'
       olympians = Olympian.order(:age).limit(1)
     elsif params[:age] == 'oldest'
-      olympians = Olympian.(age: :desc).limit(1)
+      olympians = Olympian.order(age: :desc).limit(1)
     else
       olympians = Olympian.all
     end
