@@ -7,6 +7,6 @@ class Api::V1::Events::MedalistsController < ApplicationController
       medalists: [] }
     medalists.each {|medalist| result[:medalists] << MedalistSerializer.new(event, medalist)}
     result[:medalists]
-    render json: result
+    render status: :ok, json: result
   end
 end

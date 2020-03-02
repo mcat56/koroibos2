@@ -11,4 +11,12 @@ class Olympian < ApplicationRecord
   def total_medals
     OlympianEvent.where(olympian_id: self.id, medal: ['Bronze', 'Silver', 'Gold']).length
   end
+
+  def self.top_male
+    Olympian.where(sex: 'M').max { |a, b| a.total_medals <=> b.total_medals }
+  end
+
+  def self.top_female
+    Olympian.where(sex: 'F').max { |a, b| a.total_medals <=> b.total_medals } 
+  end
 end
