@@ -35,7 +35,8 @@ group :development, :test do
   gem 'capybara'
   gem 'simplecov'
   gem 'rack-test'
-  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 end
 

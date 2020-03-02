@@ -17,17 +17,11 @@ ActiveRecord::Schema.define(version: 2020_03_01_225445) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.bigint "bronze_id"
-    t.bigint "silver_id"
-    t.bigint "gold_id"
     t.bigint "sport_id"
     t.bigint "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bronze_id"], name: "index_events_on_bronze_id"
     t.index ["game_id"], name: "index_events_on_game_id"
-    t.index ["gold_id"], name: "index_events_on_gold_id"
-    t.index ["silver_id"], name: "index_events_on_silver_id"
     t.index ["sport_id"], name: "index_events_on_sport_id"
   end
 
@@ -38,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_225445) do
   end
 
   create_table "olympian_events", force: :cascade do |t|
+    t.string "medal"
     t.bigint "olympian_id"
     t.bigint "event_id"
     t.datetime "created_at", null: false
@@ -74,9 +69,6 @@ ActiveRecord::Schema.define(version: 2020_03_01_225445) do
   end
 
   add_foreign_key "events", "games"
-  add_foreign_key "events", "olympians", column: "bronze_id"
-  add_foreign_key "events", "olympians", column: "gold_id"
-  add_foreign_key "events", "olympians", column: "silver_id"
   add_foreign_key "events", "sports"
   add_foreign_key "olympian_events", "events"
   add_foreign_key "olympian_events", "olympians"
