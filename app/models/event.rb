@@ -5,4 +5,9 @@ class Event < ApplicationRecord
   has_many :olympian_events
   has_many :olympians, through: :olympian_events
 
+
+  def get_medalists
+    ids = Event.where(id: self.id).joins(:olympian_events).where("olympian_events.medal in ('Gold', 'Silver')").order('olympian_events.medal').pluck('olympian_events.olympian_id')
+    Olympian.find(ids)
+  end
 end
