@@ -169,15 +169,17 @@ GET request to `api/v1/olympian_stats`
 Sample Response:
 ```
 {
-  "olympian_stats": {
-    "total_competing_olympians": 3120
-    "average_weight:" {
-      "unit": "kg",
-      "male_olympians": 75.4,
-      "female_olympians": 70.2
+    "olympian_stats": {
+        "total_competing_olympians": 2856,
+        "total_male_olympians": 1633,
+        "total_female_olympians": 1223,
+        "average_weight": {
+            "unit": "kg",
+            "male_olympians": 77.9,
+            "female_olympians": 61.4
+        },
+        "average_age": 26.4
     }
-    "average_age:" 26.2
-  }
 }
 ```
 </details>
@@ -240,6 +242,68 @@ Sample Response:
         "medal": "Silver"
       }
     ]
+}
+```
+</details>
+
+<details>
+  <summary>Get Top Medalists</summary>
+
+GET request to `api/v1/olympians/top_medalists`
+
+Sample Response:
+```
+{
+    "top_medalists": {
+        "male": {
+            "name": "Nathan Ghar-Jun Adrian",
+            "events": [
+                {
+                    "event": "Swimming Men's 50 metres Freestyle",
+                    "medal": "Bronze"
+                },
+                {
+                    "event": "Swimming Men's 100 metres Freestyle",
+                    "medal": "Bronze"
+                },
+                {
+                    "event": "Swimming Men's 4 x 100 metres Freestyle Relay",
+                    "medal": "Gold"
+                },
+                {
+                    "event": "Swimming Men's 4 x 100 metres Medley Relay",
+                    "medal": "Gold"
+                }
+            ],
+            "total_medals_won": 4
+        },
+        "female": {
+            "name": "Simone Arianne Biles",
+            "events": [
+                {
+                    "event": "Gymnastics Women's Individual All-Around",
+                    "medal": "Gold"
+                },
+                {
+                    "event": "Gymnastics Women's Team All-Around",
+                    "medal": "Gold"
+                },
+                {
+                    "event": "Gymnastics Women's Floor Exercise",
+                    "medal": "Gold"
+                },
+                {
+                    "event": "Gymnastics Women's Horse Vault",
+                    "medal": "Gold"
+                },
+                {
+                    "event": "Gymnastics Women's Balance Beam",
+                    "medal": "Bronze"
+                }
+            ],
+            "total_medals_won": 5
+        }
+    }
 }
 ```
 </details>
