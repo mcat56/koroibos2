@@ -4,7 +4,7 @@ class Api::V1::EventsController < ApplicationController
     sports = Sport.all
     result = { events: [] }
     sports.each { |sport| result[:events] << SportSerializer.new(sport) }
-    render json: result
+    render status: :ok, json: result
   end
 
 end
