@@ -2,5 +2,10 @@ language: ruby
 rvm:
 - 2.6.3
 before_install: gem install bundler -v 2.0.2
+
+before_script:
+  - "psql -c 'create database myapp_test;' -U postgres"
+  - "rake db:migrate"
+
 script:
 - bundle exec rspec
