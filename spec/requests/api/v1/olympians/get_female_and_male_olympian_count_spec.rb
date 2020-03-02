@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'get olympian stats' do
-  it 'gets all olympians and associated info' do
+  it 'gets stats with count of male and female olympians' do
     team1 = Team.create(country: 'USA')
     team2 = Team.create(country: 'Germany')
     team3 = Team.create(country: 'Spain')
