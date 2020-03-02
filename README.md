@@ -32,7 +32,7 @@
 koroibos is a Rails PostgreSQL API serving endpoints for the 2016 Summer Olympics. Endpoints provide data such as all olympians in the games, the oldest and youngest olympians, olympian stats, events, and medalists.
 
 ### Tech Stack
-* Rails (2.0.8)
+* Rails (5.2.4)
 * PostgreSQL (11.5)
 * RSpec (3.9.0)
 
