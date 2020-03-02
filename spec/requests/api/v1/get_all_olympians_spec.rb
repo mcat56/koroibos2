@@ -29,7 +29,12 @@ describe 'get all olympians' do
 
     expect(response).to be_successful
     olympians = JSON.parse(response.body)
-    require "pry"; binding.pry
-    expect(olympians.olympians.length).to eq(5)
+    expect(olympians["olympians"].length).to eq(3)
+    expect(olympians["olympians"][0]["name"]).to eq('Sara')
+    expect(olympians["olympians"][1]["name"]).to eq('Solveig')
+    expect(olympians["olympians"][2]["name"]).to eq('Susan')
+    expect(olympians["olympians"][0]["total_medals_won"]).to eq(3)
+    expect(olympians["olympians"][1]["total_medals_won"]).to eq(2)
+    expect(olympians["olympians"][2]["total_medals_won"]).to eq(1)
   end
 end
