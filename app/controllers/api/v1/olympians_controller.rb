@@ -1,16 +1,7 @@
 class Api::V1::OlympiansController < ApplicationController
 
   def index
-    if params[:age] == 'youngest'
-      olympians = Olympian.order(:age).limit(1)
-    elsif params[:age] == 'oldest'
-      olympians = Olympian.order(age: :desc).limit(1)
-    else
-      olympians = Olympian.all
-    end
-
-    result = { olympians: [] }
-    olympians.each { |olympian| result[:olympians] << OlympianSerializer.new(olympian) }
-    render status: :ok, json: result
+    facade = OlympiansFacade.new(params[:age]).olympians
+    render status: :ok, json: facade
   end
 end

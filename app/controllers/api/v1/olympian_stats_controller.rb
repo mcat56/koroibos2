@@ -1,8 +1,7 @@
 class Api::V1::OlympianStatsController < ApplicationController
 
   def index
-    olympians = Olympian.all
-    stats = OlympianStatSerializer.new(olympians)
+    stats = OlympianStatSerializer.new(Olympian.all)
     render status: :ok, json: stats
   end
 end
