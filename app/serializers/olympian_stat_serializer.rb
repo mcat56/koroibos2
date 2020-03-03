@@ -11,6 +11,11 @@ class OlympianStatSerializer
         male_olympians: average_male_weight(olympians),
         female_olympians: average_female_weight(olympians)
       },
+      average_height: {
+        unit: 'cm',
+        male_olympians: average_male_height(olympians),
+        female_olympians: average_female_height(olympians),
+      },
       average_age: average_age(olympians)
     }
   end
@@ -29,6 +34,14 @@ class OlympianStatSerializer
 
   def average_female_weight(olympians)
     olympians.where(sex: 'F').average(:weight).to_f.round(1)
+  end
+
+  def average_male_height(olympians)
+    olympians.where(sex: 'M').average(:height).to_f.round(1)
+  end
+
+  def average_female_height(olympians)
+    olympians.where(sex: 'F').average(:height).to_f.round(1)
   end
 
   def average_age(olympians)
